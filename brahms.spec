@@ -7,7 +7,7 @@ Group:		Applications/Multimedia
 Group(pl):	Aplikacje/Multimedia
 Source0:	http://lienhard.desy.de/mackag/homepages/jan/Brahms/%{name}-%{version}.tar.gz
 URL:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	kdesupport
 
 %description
