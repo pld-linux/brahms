@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
-Brahms is a MIDI Program for the K Desktop Enviroment.
+Brahms is a MIDI Program for the K Desktop Environment.
 
 %description -l pl
 Brahms jest programem MIDI dla ¶rodowiska KDE.
