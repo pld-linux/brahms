@@ -1,20 +1,13 @@
-%define kdeprefix /usr
-%define qtdir /usr/lib/qt-1.44
-%define version 0.97.2
-%define kdename Brahms
-%define kderelease 0
-
-Name: %{kdename}
-Summary: Brahms - a MIDI Program for KDE
-Version: %{version}
-Release: %{kderelease}
-Source: http://lienhard.desy.de/mackag/homepages/jan/Brahms/Brahms-0.97.2.tar.gz
-URL: http://lienhard.desy.de/mackag/homepages/jan/Brahms/
-Group: Applications/Multimedia
-BuildRoot: /var/tmp/%{kdename}-buildroot
-Copyright: GPL
-Requires: kdesupport
-Prefix: %{kdeprefix}
+Name:		Brahms
+Summary:	Brahms - a MIDI Program for KDE
+Version:	0.97.2
+Release:	0
+License:	GPL
+Group:		Applications/Multimedia
+Source:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/%{name}-%{version}.tar.gz
+URL:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/
+BuildRoot:	/tmp/%{name}-%{version}-root
+Requires:	kdesupport
 
 %description
 Brahms is a MIDI Program for the K Desktop Enviroment.
@@ -55,7 +48,3 @@ echo "%docdir /usr/doc/kde" >> $RPM_BUILD_DIR/file.list.%{kdename}
 rm -rf $RPM_BUILD_ROOT $RPM_BUILD_DIR/file.list.%{kdename}
 
 %files -f ../file.list.%{kdename}
-
-%changelog
-* Mon Nov 2 1999 Mattias Kunkel <mattias@kunkel.freeservers.com>
-- made initial RPM
