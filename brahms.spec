@@ -30,11 +30,11 @@ export KDEDIR=%{kdeprefix} QTDIR=%{qtdir}
 	--prefix=$KDEDIR \
 	--with-install-root=$RPM_BUILD_ROOT
 
-make CXXFLAGS="$RPM_OPT_FLAGS -DNO_DEBUG -DNDEBUG"
+%{__make} CXXFLAGS="$RPM_OPT_FLAGS -DNO_DEBUG -DNDEBUG"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install-strip prefix=$RPM_BUILD_ROOT%{kdeprefix}
+%{__make} install-strip prefix=$RPM_BUILD_ROOT%{kdeprefix}
 
 # remove conflicting mime types
 rm -rf $RPM_BUILD_ROOT%{kdeprefix}/share/mimelnk
