@@ -4,7 +4,7 @@ Name:		brahms
 Version:	1.02
 Release:	3
 License:	GPL
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}-kde2.tar.bz2
 URL:		http://brahms.sourceforge.net/
 BuildRequires:	autoconf
