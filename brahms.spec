@@ -27,8 +27,6 @@ Brahms is a MIDI Program for the K Desktop Enviroment.
 Brahms jest programem MIDI dla ¶rodowiska KDE.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q -n Brahms
 
 %build
@@ -44,12 +42,10 @@ rm -rf $RPM_BUILD_ROOT
 # remove conflicting mime types
 rm -rf $RPM_BUILD_ROOT%{kdeprefix}/share/mimelnk
 
-
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files
@@ -57,8 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*
 %dir %{_datadir}/doc/HTML/en/brahms
-%attr(644,root,root) %{_datadir}/doc/HTML/en/brahms/*
-%attr(644,root,root) %{_datadir}/icons/hicolor/*/apps/*
-%attr(644,root,root) %{_datadir}/apps/brahms/brahmsui.rc
-%attr(644,root,root) %{_datadir}/apps/brahms/pics/*
-%attr(644,root,root) %{_applnkdir}/Multimedia/*
+%{_datadir}/doc/HTML/en/brahms/*
+%{_datadir}/icons/hicolor/*/apps/*
+%{_datadir}/apps/brahms/brahmsui.rc
+%{_datadir}/apps/brahms/pics/*
+%{_applnkdir}/Multimedia/*
