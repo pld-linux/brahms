@@ -29,7 +29,7 @@ rm -rf $RPM_BUILD_ROOT
 %build
 export KDEDIR=%{kdeprefix} QTDIR=%{qtdir}
 
-./configure2_13 \
+%configure2_13 \
 	--prefix=$KDEDIR \
 	--with-install-root=$RPM_BUILD_ROOT
 
