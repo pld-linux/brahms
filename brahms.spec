@@ -27,11 +27,7 @@ rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
-export KDEDIR=%{kdeprefix} QTDIR=%{qtdir}
-
-%configure2_13 \
-	--prefix=$KDEDIR \
-	--with-install-root=$RPM_BUILD_ROOT
+%configure2_13
 
 %{__make} CXXFLAGS="%{rpmcflags} %{!?debug:-DNO_DEBUG -DNDEBUG}"
 
