@@ -30,7 +30,7 @@ Brahms jest programem MIDI dla ¶rodowiska KDE.
 %build
 %configure2_13
 
-%{__make} CXXFLAGS="%{rpmcflags} %{!?debug:-DNO_DEBUG -DNDEBUG}"
+%{__make} CXXFLAGS="%{rpmcflags} -no-exceptins -fno-rtti %{!?debug:-DNO_DEBUG -DNDEBUG}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 # remove conflicting mime types
-rm -rf $RPM_BUILD_ROOT%{kdeprefix}/share/mimelnk
+rm -rf $RPM_BUILD_ROOT%{_datadir}/mimelnk
 
 %clean
 rm -rf $RPM_BUILD_ROOT
