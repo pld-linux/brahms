@@ -3,12 +3,15 @@ Summary:	Brahms - a MIDI Program for KDE
 Version:	0.97.2
 Release:	0
 License:	GPL
-Group:		Applications/Multimedia
-Group(pl):	Aplikacje/Multimedia
+Group:		X11/Applications/Multimedia
+Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://lienhard.desy.de/mackag/homepages/jan/Brahms/%{name}-%{version}.tar.gz
 URL:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	kdesupport
+
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 Brahms is a MIDI Program for the K Desktop Enviroment.
@@ -30,6 +33,7 @@ export KDEDIR=%{kdeprefix} QTDIR=%{qtdir}
 make CXXFLAGS="$RPM_OPT_FLAGS -DNO_DEBUG -DNDEBUG"
 
 %install
+rm -rf $RPM_BUILD_ROOT
 make install-strip prefix=$RPM_BUILD_ROOT%{kdeprefix}
 
 # remove conflicting mime types
