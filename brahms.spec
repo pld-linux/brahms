@@ -4,7 +4,8 @@ Version:	0.97.2
 Release:	0
 License:	GPL
 Group:		Applications/Multimedia
-Source:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/%{name}-%{version}.tar.gz
+Group(pl):	Aplikacje/Multimedia
+Source0:	http://lienhard.desy.de/mackag/homepages/jan/Brahms/%{name}-%{version}.tar.gz
 URL:		http://lienhard.desy.de/mackag/homepages/jan/Brahms/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Requires:	kdesupport
@@ -42,9 +43,10 @@ find . -type f | sed -e 's,^\.,\%attr(-\,root\,root) ,' \
 find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> \
 	$RPM_BUILD_DIR/file.list.%{kdename}
 
-echo "%docdir /usr/doc/kde" >> $RPM_BUILD_DIR/file.list.%{kdename}
+echo "%docdir %{_prefix}/doc/kde" >> $RPM_BUILD_DIR/file.list.%{kdename}
 
 %clean
 rm -rf $RPM_BUILD_ROOT $RPM_BUILD_DIR/file.list.%{kdename}
 
 %files -f ../file.list.%{kdename}
+%defattr(644,root,root,755)
