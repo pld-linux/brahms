@@ -2,7 +2,7 @@ Summary:	Brahms - a MIDI Program for KDE
 Summary(pl):	Brahms - program MIDI dla KDE
 Name:		brahms
 Version:	1.02
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}-kde2.tar.bz2
@@ -49,7 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%{_libdir}/mcop/*
 %dir %{_datadir}/doc/HTML/en/brahms
 %{_datadir}/doc/HTML/en/brahms/*
 %{_datadir}/icons/hicolor/*/apps/*
