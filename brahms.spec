@@ -1,16 +1,21 @@
-Name:		brahms
 Summary:	Brahms - a MIDI Program for KDE
 Summary(pl):	Brahms - program MIDI dla KDE
-Version:	1.01
+Name:		brahms
+Version:	1.02
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
-Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}.tar.bz2
+Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}-kde2.tar.bz2
 URL:		http://brahms.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	kdelibs-devel
+BuildRequires:	kdemultimedia-devel
+BuildRequires:	libtool
+BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	kdelibs-devel
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -24,7 +29,7 @@ Brahms jest programem MIDI dla ¶rodowiska KDE.
 %prep
 rm -rf $RPM_BUILD_ROOT
 
-%setup -q
+%setup -q -n Brahms
 
 %build
 %configure2_13
@@ -33,26 +38,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install prefix=$RPM_BUILD_ROOT%{kdeprefix}
+
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 # remove conflicting mime types
 rm -rf $RPM_BUILD_ROOT%{kdeprefix}/share/mimelnk
 
-cd $RPM_BUILD_ROOT
-find . -type d | sed '1,2d;s,^\.,\%attr(-\,root\,root) \%dir ,' > \
-	$RPM_BUILD_DIR/file.list.%{kdename}
 
-find . -type f | sed -e 's,^\.,\%attr(-\,root\,root) ,' \
-	-e '/\/config\//s|^|%config|' >> \
-	$RPM_BUILD_DIR/file.list.%{kdename}
-
-find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> \
-	$RPM_BUILD_DIR/file.list.%{kdename}
-
-echo "%docdir %{_prefix}/doc/kde" >> $RPM_BUILD_DIR/file.list.%{kdename}
 
 %clean
-rm -rf $RPM_BUILD_ROOT $RPM_BUILD_DIR/file.list.%{kdename}
+rm -rf $RPM_BUILD_ROOT
 
-%files -f ../file.list.%{kdename}
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+%files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/*
+%dir %{_datadir}/doc/HTML/en/brahms
+%attr(644,root,root) %{_datadir}/doc/HTML/en/brahms/*
+%attr(644,root,root) %{_datadir}/icons/hicolor/*/apps/*
+%attr(644,root,root) %{_datadir}/apps/brahms/brahmsui.rc
+%attr(644,root,root) %{_datadir}/apps/brahms/pics/*
+%attr(644,root,root) %{_applnkdir}/Multimedia/*
