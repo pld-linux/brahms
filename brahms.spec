@@ -13,6 +13,9 @@ Requires:	kdesupport
 %description
 Brahms is a MIDI Program for the K Desktop Enviroment.
 
+%description -l pl
+Brahms jest programem MIDI dla ¶rodowiska KDE.
+
 %prep
 rm -rf $RPM_BUILD_ROOT
 
