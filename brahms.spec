@@ -5,8 +5,6 @@ Version:	1.02
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}-kde2.tar.bz2
 URL:		http://brahms.sourceforge.net/
 BuildRequires:	autoconf
