@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}-kde2.tar.bz2
+# Source0-md5:	339c87968e02dfad7d1afe7dea0b2829
 URL:		http://brahms.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
