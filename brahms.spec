@@ -37,7 +37,8 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 # remove conflicting mime types
 rm -rf $RPM_BUILD_ROOT%{_datadir}/mimelnk
