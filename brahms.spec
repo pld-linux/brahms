@@ -11,8 +11,6 @@ Source0:	http://brahms.sourceforge.net/download/%{name}-%{version}.tar.bz2
 URL:		http://brahms.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	kdelibs-devel
-BuildRequires:	automake
-BuildRequires:	autoconf
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -30,10 +28,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %build
 export KDEDIR=%{kdeprefix} QTDIR=%{qtdir}
-aclocal
-autoconf
-automake -a -c
-./configure \
+
+./configure2_13 \
 	--prefix=$KDEDIR \
 	--with-install-root=$RPM_BUILD_ROOT
 
