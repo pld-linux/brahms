@@ -1,5 +1,5 @@
 Summary:	Brahms - a MIDI Program for KDE
-Summary(pl.UTF-8):   Brahms - program MIDI dla KDE
+Summary(pl.UTF-8):	Brahms - program MIDI dla KDE
 Name:		brahms
 Version:	1.02
 Release:	3
