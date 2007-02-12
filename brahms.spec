@@ -1,5 +1,5 @@
 Summary:	Brahms - a MIDI Program for KDE
-Summary(pl):	Brahms - program MIDI dla KDE
+Summary(pl.UTF-8):   Brahms - program MIDI dla KDE
 Name:		brahms
 Version:	1.02
 Release:	3
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Brahms is a MIDI Program for the K Desktop Environment.
 
-%description -l pl
-Brahms jest programem MIDI dla ¶rodowiska KDE.
+%description -l pl.UTF-8
+Brahms jest programem MIDI dla Å›rodowiska KDE.
 
 %prep
 %setup -q -n Brahms
